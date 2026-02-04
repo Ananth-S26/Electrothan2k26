@@ -65,9 +65,10 @@ export default function Register() {
   
     try {
       const response = await fetch(
-        "https://script.google.com/macros/s/AKfycby59jA75MPibdv_BkWODplrEpx6YsaJoKD2fb6cbHQNepdd_xpqihtVpQkvSa9OyoCu/exec",
+        "https://script.google.com/macros/s/AKfycbxQQeH9q-pKyPmq5zu0OG-cuh6LR5Pi-jfs4RpBbKTJmOXeQClIPqaeKpAO5Rx1Xs5F/exec",
         {
           method: "POST",
+          mode:"no-cors",
           headers: {
             "Content-Type": "application/json",
           },
@@ -77,7 +78,8 @@ export default function Register() {
   
       const result = await response.json();
   
-      if (result.status === "success") {
+      if (result.success === true) {
+        
         alert("Registration Successful 🚀");
         setFormData({
           teamName: "",
