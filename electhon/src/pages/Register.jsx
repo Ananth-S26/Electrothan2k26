@@ -25,44 +25,82 @@ export default function Register() {
   const validate = () => {
     const e = {};
 
-    if (!formData.teamName) e.teamName = "Please enter xyz Team Name";
-    if (!formData.leadName) e.leadName = "Please enter xyz Team Lead Name";
-    if (!formData.leadRoll) e.leadRoll = "Please enter xyz Team Lead Roll No";
-
+    if (!formData.teamName) e.teamName = "Please enter your Team Name";
+    if (!formData.leadName) e.leadName = "Please enter your Team Lead Name";
+    if (!formData.leadRoll) e.leadRoll = "Please enter your Team Lead Roll No";
+   
     if (!formData.leadEmail)
       e.leadEmail = "Please enter xyz Email ID";
     else if (
       !/^[a-z]+\.\d{2}[a-z]{3}@kongu\.edu$/.test(formData.leadEmail)
     )
       e.leadEmail =
-        "Email must be in abc format (ananths.23eee@kongu.edu)";
+        "Email must be in college mail format (ananths.23eee@kongu.edu)";
 
-    if (!formData.leadPhone)
-      e.leadPhone = "Please enter xyz Mobile Number";
-
+        if (!formData.leadPhone)
+        e.leadPhone = "Please enter your Mobile Number";
+      else if (!/^[6-9]\d{9}$/.test(formData.leadPhone))
+        e.leadPhone = "Mobile number must be 10 digits and start with 6-9";
+      
     if (formData.member2Name && !formData.member2Roll)
-      e.member2 = "Please fill abc Roll No for Teammate 2";
-
+      e.member2 = "Please fill Roll No for Teammate 2";
+    
     if (formData.member3Name && !formData.member3Roll)
-      e.member3 = "Please fill abc Roll No for Teammate 3";
+      e.member3 = "Please fill Roll No for Teammate 3";
 
     if (!formData.problemStatement)
-      e.problemStatement = "Please enter xyz Problem Statement";
+      e.problemStatement = "Please enter your Problem Statement";
 
     if (!formData.abstract)
-      e.abstract = "Please enter xyz Abstract";
+      e.abstract = "Please enter your Abstract";
 
     setErrors(e);
     return Object.keys(e).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validate()) {
-      alert("Registration Successful 🚀");
-      console.log(formData);
+  
+    if (!validate()) return;
+  
+    try {
+      const response = await fetch(
+        "https://script.google.com/macros/s/AKfycby59jA75MPibdv_BkWODplrEpx6YsaJoKD2fb6cbHQNepdd_xpqihtVpQkvSa9OyoCu/exec",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+  
+      const result = await response.json();
+  
+      if (result.status === "success") {
+        alert("Registration Successful 🚀");
+        setFormData({
+          teamName: "",
+          leadName: "",
+          leadRoll: "",
+          leadEmail: "",
+          leadPhone: "",
+          member2Name: "",
+          member2Roll: "",
+          member3Name: "",
+          member3Roll: "",
+          problemStatement: "",
+          abstract: "",
+        });
+      } else {
+        alert("Submission failed. Try again.");
+      }
+    } catch (error) {
+      alert("Network error. Please try later.");
+      console.error(error);
     }
   };
+  
 
   return (
     <PageWrapper>
@@ -93,7 +131,7 @@ export default function Register() {
             <input name="leadName" placeholder="Name" onChange={handleChange} />
             {errors.leadName && <span>{errors.leadName}</span>}
 
-            <input name="leadRoll" placeholder="Roll No (23EER006)" onChange={handleChange} />
+            <input name="leadRoll" placeholder="Roll No" onChange={handleChange} />
             {errors.leadRoll && <span>{errors.leadRoll}</span>}
 
             <input name="leadEmail" placeholder="Email ID" onChange={handleChange} />
