@@ -1,0 +1,139 @@
+.problems {
+    min-height: 100vh;
+    padding: 160px 10%;
+    background: radial-gradient(circle at center, #1a120b, #0b0b0b 70%);
+  }
+  .bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 0;
+  }
+  .bg-video {
+    filter: brightness(1.1) contrast(1.05) saturate(1.05);
+  }
+  
+  .problems h2 {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 48px;
+    letter-spacing: 4px;
+    margin-bottom: 80px;
+  }
+  
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+  }
+  
+  .problem-card {
+    padding: 60px 50px;
+    border: 1px solid rgba(201, 162, 77, 0.3);
+    background: rgba(0, 0, 0, 0.35);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .problem-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid transparent;
+    transition: 0.4s;
+  }
+  
+  .problem-card:hover::before {
+    border-color: var(--gold);
+  }
+  
+  .problem-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+  }
+  
+  .problem-card p {
+    color: var(--gray);
+    line-height: 1.7;
+  }
+  /* ---------- RESPONSIVE FIXES ---------- */
+
+@media (max-width: 1200px) {
+    .problems {
+      padding: 140px 8%;
+    }
+  
+    .problem-grid {
+      gap: 40px;
+    }
+  
+    .problem-card {
+      padding: 50px 40px;
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .problems {
+      padding: 120px 6%;
+    }
+  
+    .problems h2 {
+      font-size: 40px;
+      margin-bottom: 60px;
+    }
+  
+    .problem-grid {
+      grid-template-columns: 1fr; /* stack cards */
+      gap: 36px;
+    }
+  
+    .problem-card {
+      padding: 40px 32px;
+    }
+  
+    .problem-card h3 {
+      font-size: 24px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .problems {
+      padding: 100px 5%;
+    }
+  
+    .problems h2 {
+      font-size: 34px;
+      letter-spacing: 3px;
+    }
+  
+    .problem-card {
+      padding: 32px 24px;
+    }
+  
+    .problem-card h3 {
+      font-size: 22px;
+      letter-spacing: 2px;
+    }
+  
+    .problem-card p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  }
+  
+  /* Prevent bg video overflow on small screens */
+  @media (max-width: 600px) {
+    .bg-video {
+      filter: brightness(1) contrast(1);
+    }
+  }
+  
