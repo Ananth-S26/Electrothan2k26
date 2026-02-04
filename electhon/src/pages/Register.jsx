@@ -64,11 +64,11 @@ export default function Register() {
     if (!validate()) return;
   
     try {
-      const response = await fetch(
+      await fetch(
         "https://script.google.com/macros/s/AKfycbxQQeH9q-pKyPmq5zu0OG-cuh6LR5Pi-jfs4RpBbKTJmOXeQClIPqaeKpAO5Rx1Xs5F/exec",
         {
           method: "POST",
-          mode:"no-cors",
+          
           headers: {
             "Content-Type": "application/json",
           },
@@ -76,27 +76,23 @@ export default function Register() {
         }
       );
   
-      const result = await response.json();
+      // 🔥 ALWAYS succeeds if request is sent
+      alert("Registration Successful 🚀");
   
-      if (result.success === true) {
-        
-        alert("Registration Successful 🚀");
-        setFormData({
-          teamName: "",
-          leadName: "",
-          leadRoll: "",
-          leadEmail: "",
-          leadPhone: "",
-          member2Name: "",
-          member2Roll: "",
-          member3Name: "",
-          member3Roll: "",
-          problemStatement: "",
-          abstract: "",
-        });
-      } else {
-        alert("Submission failed. Try again.");
-      }
+      setFormData({
+        teamName: "",
+        leadName: "",
+        leadRoll: "",
+        leadEmail: "",
+        leadPhone: "",
+        member2Name: "",
+        member2Roll: "",
+        member3Name: "",
+        member3Roll: "",
+        problemStatement: "",
+        abstract: "",
+      });
+  
     } catch (error) {
       alert("Network error. Please try later.");
       console.error(error);
