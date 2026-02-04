@@ -65,7 +65,7 @@ export default function Register() {
   
     try {
       await fetch(
-        "https://script.google.com/macros/s/AKfycbxQQeH9q-pKyPmq5zu0OG-cuh6LR5Pi-jfs4RpBbKTJmOXeQClIPqaeKpAO5Rx1Xs5F/exec",
+        "https://script.google.com/macros/s/AKfycbzrrvdM1votcYR5XWtBS8ucfkvnXCYGXve1DV03sfuJXj4x7613upPZly_G6MuJXVg/exec",
         {
           method: "POST",
           
