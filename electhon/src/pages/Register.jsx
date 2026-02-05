@@ -70,7 +70,7 @@ export default function Register() {
 
     try {
       const res = await fetch(SCRIPT_URL, {
-        method: "POST",
+        method: "POST",mode:"no-cors",
         headers: {
           "Content-Type": "application/json",
         },
