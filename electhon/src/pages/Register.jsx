@@ -65,26 +65,21 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
-
+  
     setLoading(true);
-
+  
     try {
-      const res = await fetch(SCRIPT_URL, {
-        method: "POST",mode:"no-cors",
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
-
-      const result = await res.json();
-
-      if (!result.success) {
-        throw new Error(result.error || "Submission failed");
-      }
-
+  
       alert("Registration Successful 🚀");
-
+  
       setFormData({
         teamName: "",
         leadName: "",
@@ -98,7 +93,7 @@ export default function Register() {
         problemStatement: "",
         abstract: "",
       });
-
+  
       setErrors({});
     } catch (err) {
       console.error(err);
@@ -107,20 +102,14 @@ export default function Register() {
       setLoading(false);
     }
   };
+  
 
   return (
     <PageWrapper>
       <section className="register">
-        <video
-          className="bg-video"
-          src="/bg.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
+       
 
-        <h2>Join the Outlaws</h2>
+        <h2>Join The Hackathon</h2>
 
         <form className="register-form" onSubmit={handleSubmit}>
           {/* Team Info */}
