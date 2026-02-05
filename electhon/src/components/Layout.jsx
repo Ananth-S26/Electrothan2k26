@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import "../styles/layout.css";
 import "../styles/loader.css";
+import Footer from "./Footer";
 
 export default function Layout({ children }) {
   const [loading, setLoading] = useState(true);
@@ -50,8 +51,10 @@ export default function Layout({ children }) {
 
           {/* CONTENT */}
           <div className="page-content">{children}</div>
+          <Footer />
         </>
       )}
     </div>
+    
   );
 }
