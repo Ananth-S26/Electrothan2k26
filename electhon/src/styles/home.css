@@ -169,3 +169,82 @@
     font-size: 0.6rem;
   }
 }
+/* ===============================
+   PROBLEM TEASER CTA
+================================ */
+.problem-teaser {
+  margin: 30px auto 20px;
+  padding: 14px 22px;
+  max-width: 520px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  background: rgba(218, 165, 32, 0.155);
+  border: 0.75px solid gold;
+  border-radius: 30px;
+  cursor: pointer;
+  color: gold;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+  animation: teaserFloat 2.5s ease-in-out infinite;
+}
+
+.problem-teaser:hover {
+  background: rgba(255, 230, 0, 0.15);
+  transform: scale(1.05);
+  box-shadow: 0 0 5px rgba(255, 213, 0, 0.5);
+}
+
+.problem-teaser p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.problem-teaser strong {
+  color: #fff;
+}
+
+/* Pulsing dot */
+.pulse-dot {
+  width: 10px;
+  height: 10px;
+  background: #00ffea;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00ffea;
+  animation: pulseDot 1.6s infinite;
+}
+
+/* Arrow */
+.problem-teaser .arrow {
+  font-size: 1.2rem;
+  animation: arrowBounce 1.4s infinite;
+}
+
+/* Animations */
+@keyframes pulseDot {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.6); opacity: 0.6; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes arrowBounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes teaserFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .problem-teaser {
+    font-size: 0.85rem;
+    padding: 12px 16px;
+  }
+}

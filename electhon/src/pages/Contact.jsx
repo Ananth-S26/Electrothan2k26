@@ -20,6 +20,15 @@ export default function Contact() {
             <h3>COORDINATORS</h3>
             <p
             className="copy-row"
+            onClick={() => navigator.clipboard.writeText("8807888699")}
+            >
+            <span className="name">Gowthaam A</span>
+            <span className="hover-msg">Click to copy</span>
+            <span className="number">8807888699</span>
+            </p>
+
+            <p
+            className="copy-row"
             onClick={() => navigator.clipboard.writeText("8754277997")}
             >
             <span className="name">Kiran Karthek S</span>

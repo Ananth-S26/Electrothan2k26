@@ -1,13 +1,25 @@
-import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import "../styles/navbar.css";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+    setOpen(false);
+  };
+
   return (
     <nav className="rdr-navbar">
-      <div className="rdr-logo"><img src="../../public/eeegolden.png" alt="" height="50px"/></div>
+      <div
+        className="rdr-logo"
+        onClick={() => scrollToSection("home")}
+      >
+        <img src="/eeegolden.png" alt="EEE Logo" height="50px" a onClick={() => scrollToSection("home")}  />
+      </div>
 
       {/* Hamburger */}
       <div
@@ -21,11 +33,11 @@ export default function Navbar() {
 
       {/* Links */}
       <div className={`nav-links ${open ? "show" : ""}`}>
-        <NavLink to="/" onClick={() => setOpen(false)}>Home</NavLink>
-        <NavLink to="/about" onClick={() => setOpen(false)}>About</NavLink>
-        <NavLink to="/problems" onClick={() => setOpen(false)}>Problems</NavLink>
-        <NavLink to="/register" onClick={() => setOpen(false)}>Register</NavLink>
-        <NavLink to="/contact" onClick={() => setOpen(false)}>Contact</NavLink>
+        <a onClick={() => scrollToSection("home")}>Home</a>
+        <a onClick={() => scrollToSection("about")}>About</a>
+        <a onClick={() => scrollToSection("problems")}>Problems</a>
+        <a onClick={() => scrollToSection("register")}>Register</a>
+        <a onClick={() => scrollToSection("contact")}>Contact</a>
       </div>
     </nav>
   );

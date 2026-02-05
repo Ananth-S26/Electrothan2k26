@@ -1,32 +1,32 @@
 import { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import "../styles/layout.css";
-import "../styles/loader.css"; // make sure this exists
+import "../styles/loader.css";
 
 export default function Layout({ children }) {
   const [loading, setLoading] = useState(true);
 
-  // Hide loader after 2.5 seconds
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2500);
+    const timer = setTimeout(() => setLoading(false), 2600);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="app-wrapper">
-      {/* LOADING SCREEN */}
+      {/* LOADER */}
       {loading && (
         <div className="loader-wrapper">
+          <div className="loader-glow"></div>
           <div className="loader-text">
-            Association of <span className="highlight">EEE</span> presents
+            Association of <span>EEE</span>
+            <small>presents</small>
           </div>
         </div>
       )}
 
-      {/* MAIN CONTENT */}
       {!loading && (
         <>
-          {/* INTERACTIVE TECH CIRCUIT BACKGROUND */}
+          {/* TECH BACKGROUND */}
           <div className="interactive-bg">
             <span></span>
             <span></span>
@@ -36,14 +36,19 @@ export default function Layout({ children }) {
             <span></span>
             <span></span>
           </div>
+          <div className="interactive-bg network-bg">
+  {Array.from({ length: 18 }).map((_, i) => (
+    <span key={i}></span>
+  ))}
+</div>
 
-          {/* DARK OVERLAY */}
-          <div className="global-overlay" />
+          {/* OVERLAY */}
+        
 
-          {/* NAVBAR */}
+          {/* NAV */}
           <Navbar />
 
-          {/* PAGE CONTENT */}
+          {/* CONTENT */}
           <div className="page-content">{children}</div>
         </>
       )}
