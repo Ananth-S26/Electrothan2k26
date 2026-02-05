@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="footer-inner">
         <span className="footer-text">
-          Made by <strong>AnanthS</strong>
+          Made by <strong>AnanthS</strong>&<strong>SowndharR</strong>
         </span>
       </div>
     </footer>
