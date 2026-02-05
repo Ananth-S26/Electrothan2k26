@@ -1,30 +1,117 @@
 .app-wrapper {
-    position: relative;
-    width: 100vw;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-  
-  /* VIDEO */
-  .global-video {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-    z-index: -2;
-  }
-  
- 
-  
-  /* PAGE CONTENT */
-  .page-content {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-  }
-  
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #0a0a0a; /* dark base for tech theme */
+}
+
+/* Interactive Circuit Background */
+.interactive-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1c1c1c 100%);
+}
+/* Circuit Lines - multiple directions per node */
+.interactive-bg span::before,
+.interactive-bg span::after {
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 0; /* start collapsed */
+  background: #00ffea;
+  opacity: 0.3;
+  top: 50%;
+  left: 50%;
+  transform-origin: left center;
+  border-radius: 1px;
+  animation: spreadLine 2s ease-in-out infinite alternate;
+}
+
+/* Spread in two directions */
+.interactive-bg span::after {
+  transform: rotate(45deg);
+  animation-delay: 0.5s;
+}
+
+/* Expand lines animation */
+@keyframes spreadLine {
+  0% { width: 0; opacity: 0.2; }
+  50% { width: 100px; opacity: 0.6; }
+  100% { width: 0; opacity: 0.2; }
+}
+
+
+/* Circuit Nodes */
+.interactive-bg span {
+  position: absolute;
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: #00ffea;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea;
+  animation: floatTech 12s linear infinite;
+}
+
+/* Positioning & animation durations */
+.interactive-bg span:nth-child(1) { top: 20%; left: 10%; animation-duration: 12s; }
+.interactive-bg span:nth-child(2) { top: 40%; left: 25%; animation-duration: 18s; }
+.interactive-bg span:nth-child(3) { top: 60%; left: 35%; animation-duration: 15s; }
+.interactive-bg span:nth-child(4) { top: 30%; left: 55%; animation-duration: 20s; }
+.interactive-bg span:nth-child(5) { top: 70%; left: 65%; animation-duration: 17s; }
+.interactive-bg span:nth-child(6) { top: 50%; left: 80%; animation-duration: 22s; }
+.interactive-bg span:nth-child(7) { top: 10%; left: 90%; animation-duration: 19s; }
+
+/* Floating / glowing tech nodes animation */
+@keyframes floatTech {
+  0% { transform: translateY(0) scale(0.5); opacity: 0.4; }
+  50% { transform: translateY(-20px) scale(1); opacity: 1; }
+  100% { transform: translateY(0) scale(0.5); opacity: 0.4; }
+}
+
+/* Circuit Lines - using pseudo-elements for lines between nodes */
+.interactive-bg span::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 2px;
+  background: #00ffea;
+  opacity: 0.3;
+  top: 50%;
+  left: 50%;
+  transform-origin: left center;
+  transform: rotate(calc(var(--i) * 45deg)) translateX(0);
+  animation: pulseLine 4s ease-in-out infinite;
+}
+
+/* Line pulsing animation */
+@keyframes pulseLine {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.6; }
+}
+
+/* Dark overlay for readability */
+.global-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 0;
+  backdrop-filter: blur(2px);
+}
+
+/* Page content above background */
+.page-content {
+  position: relative;
+  z-index: 2;
+  color: #fff; /* high contrast for tech look */
+  font-family: 'Courier New', Courier, monospace;
+}

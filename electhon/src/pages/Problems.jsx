@@ -7,14 +7,7 @@ export default function Problems() {
     <PageWrapper>
       <section className="problems">
         
-      <video
-          className="bg-video"
-          src="/bg.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
+      
         <h2>Problem Statements</h2>
         
 

@@ -1,29 +1,52 @@
+import { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import "../styles/layout.css";
+import "../styles/loader.css"; // make sure this exists
 
 export default function Layout({ children }) {
+  const [loading, setLoading] = useState(true);
+
+  // Hide loader after 2.5 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2500);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="app-wrapper">
-      {/* VIDEO BACKGROUND */}
-      <video
-        className="global-video"
-        src="/bg.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-      />
+      {/* LOADING SCREEN */}
+      {loading && (
+        <div className="loader-wrapper">
+          <div className="loader-text">
+            Association of <span className="highlight">EEE</span> presents
+          </div>
+        </div>
+      )}
 
-      {/* DARK OVERLAY */}
-      <div className="global-overlay" />
+      {/* MAIN CONTENT */}
+      {!loading && (
+        <>
+          {/* INTERACTIVE TECH CIRCUIT BACKGROUND */}
+          <div className="interactive-bg">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
 
-      {/* NAVBAR */}
-      <Navbar />
+          {/* DARK OVERLAY */}
+          <div className="global-overlay" />
 
-      {/* PAGE CONTENT */}
-      <div className="page-content">
-        {children}
-      </div>
+          {/* NAVBAR */}
+          <Navbar />
+
+          {/* PAGE CONTENT */}
+          <div className="page-content">{children}</div>
+        </>
+      )}
     </div>
   );
 }

@@ -1,23 +1,9 @@
 .problems {
     min-height: 100vh;
     padding: 160px 10%;
-    background: radial-gradient(circle at center, #1a120b, #0b0b0b 70%);
-  }
-  .bg-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-    z-index: 0;
-  }
-  .bg-video {
-    filter: brightness(1.1) contrast(1.05) saturate(1.05);
-  }
+    background:transparent ;
+    }
+  
   
   .problems h2 {
     text-align: center;

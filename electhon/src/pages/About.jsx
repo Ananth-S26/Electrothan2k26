@@ -5,12 +5,10 @@ export default function About() {
   return (
     <PageWrapper>
       <section className="about">
-        {/* Background Video */}
-        <video className="about-bg-video" autoPlay muted loop playsInline>
-          <source src="/bg.mp4" type="video/mp4" />
-        </video>
+        
+        
 
-        {/* Overlay */}
+        
         
 
         {/* Content */}
@@ -19,9 +17,9 @@ export default function About() {
 
           <div className="about-grid">
             <div className="about-card">
-              <h3>About SustainX</h3>
+              <h3>About Electrothon 2k26</h3>
               <p>
-                SustainX is a national-level hackathon blending sustainability,
+                Electrothon 2k26 is a national-level hackathon blending sustainability,
                 electrical innovation, and software survival.
               </p>
             </div>

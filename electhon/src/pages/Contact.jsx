@@ -5,18 +5,10 @@ export default function Contact() {
   return (
     <PageWrapper>
       <section className="contact">
-        {/* Background Video */}
-        <video
-          className="bg-video"
-          src="/bg.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-        />
+       
 
         {/* Overlay */}
-        <div className="contact-overlay"></div>
+        
 
         <div className="contact-content">
           <h2>Contact</h2>

@@ -1,0 +1,81 @@
+/* Loader wrapper full screen */
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #0a0a0a; /* dark tech base */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  /* Bold Netflix-style pull-out text */
+  .loader-text {
+    color: #00ffea;
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    text-shadow: 0 0 5px #00ffea, 0 0 10px #00ffea, 0 0 20px #00ffea;
+    animation: introPull 2s ease-in-out forwards, exitZoom 1s ease-in 2.5s forwards;
+  }
+  
+  /* Highlight specific words if needed */
+  .loader-text .highlight {
+    color: #fff;
+    text-shadow: 0 0 15px #fff, 0 0 30px #00ffea, 0 0 45px #00ffea;
+  }
+  
+  /* Pull-out intro animation */
+  @keyframes introPull {
+    0% {
+      transform: scale(0.5) skewX(0deg);
+      opacity: 0;
+    }
+    50% {
+      transform: scale(1.3, 1.1) skewX(-10deg);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1) skewX(0deg);
+      opacity: 1;
+    }
+  }
+  
+  /* Zoom-out exit animation */
+  @keyframes exitZoom {
+    0% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(3) rotate(20deg);
+      opacity: 0;
+    }
+  }
+  
+  /* Optional: subtle background effect during loader */
+  .loader-wrapper::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: radial-gradient(circle, rgba(0,255,234,0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    animation: moveDots 10s linear infinite;
+    z-index: 1;
+  }
+  
+  @keyframes moveDots {
+    0% { transform: translate(0, 0); }
+    50% { transform: translate(50px, 50px); }
+    100% { transform: translate(0, 0); }
+  }
+  

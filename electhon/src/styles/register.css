@@ -1,26 +1,12 @@
 .register {
     min-height: 100vh;
     padding: 160px 10% 120px;
-    background: linear-gradient(to bottom, var(--brown), var(--dark));
+    background: transparent;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  .bg-video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-    z-index: 0;
-  }
-  .bg-video {
-    filter: brightness(1.1) contrast(1.05) saturate(1.05);
-  }
+
   
   .register h2 {
     font-family: "Cinzel", serif;

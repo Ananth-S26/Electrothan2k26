@@ -7,7 +7,7 @@ export default function Navbar() {
 
   return (
     <nav className="rdr-navbar">
-      <div className="rdr-logo">ELECTROTHAN 2K26</div>
+      <div className="rdr-logo">ELECTROTHON 2K26</div>
 
       {/* Hamburger */}
       <div
