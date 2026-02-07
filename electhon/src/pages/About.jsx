@@ -19,7 +19,7 @@ export default function About() {
             <div className="about-card">
               <h3>About Electrothon 2k26</h3>
               <p>
-                Electrothon 2k26 is a national-level hackathon blending sustainability,
+                Electrothon 2K26 is a Intra-College hackathon blending sustainability,
                 electrical innovation, and software survival.
               </p>
             </div>
@@ -50,7 +50,7 @@ export default function About() {
             <div className="about-card ">
               <h3>Cash Prizes</h3>
               <p>
-                Exciting cash prizes awaiting for top-performing teams.
+                For each Problem Statements, the top performing <b>Two Teams</b> will be rewarded with exciting cash prizes
               </p>
             </div>
 
