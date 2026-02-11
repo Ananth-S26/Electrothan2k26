@@ -8,6 +8,8 @@ import "../styles/home.css";
 
 export default function Home() {
   const eventDate = new Date("2026-02-18T09:00:00");
+  const registrationLastDate = new Date("2026-02-13T23:59:00");
+
   const [timeLeft, setTimeLeft] = useState({});
 
   useEffect(() => {
@@ -60,6 +62,7 @@ export default function Home() {
             )}
           </div>
               {/* PROBLEM TEASER */}
+              
 <div className="problem-teaser" onClick={() => scrollTo("problems")}>
   
   <p>
@@ -68,9 +71,13 @@ export default function Home() {
   </p>
   
 </div>
+
+
+
           <button className="hero-btn" onClick={() => scrollTo("register")}>
             ENTER THE EVENT
           </button>
+          
         </div>
         
       </section>

@@ -234,3 +234,21 @@
     padding: 30px 24px;
   }
 }
+/* ---------- CLICK TO VIEW CTA ---------- */
+
+.view-cta {
+  margin-top: 30px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  font-family: "Cinzel", serif;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.problem-card:hover .view-cta {
+  opacity: 1;
+  transform: translateX(6px);
+}

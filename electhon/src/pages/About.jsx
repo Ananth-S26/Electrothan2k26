@@ -45,6 +45,7 @@ export default function About() {
                 18th & 19th February<br />
                 24 Hours of Innovation
               </p>
+              <h3>Last Date to Register:</h3><p>13th February 2026</p>
             </div>
 
             <div className="about-card ">

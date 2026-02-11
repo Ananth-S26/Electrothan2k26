@@ -45,6 +45,9 @@ export default function Problems() {
           >
             <h3>Hardware</h3>
             <p>Smart grids, renewable devices, automation systems.</p>
+            <div className="view-cta">
+    Click here to view →
+  </div>
           </motion.div>
 
           <motion.div
@@ -54,7 +57,11 @@ export default function Problems() {
           >
             <h3>Software</h3>
             <p>AI analytics, inspection platforms, data intelligence.</p>
+            <div className="view-cta">
+    Click here to view →
+  </div>
           </motion.div>
+          
         </div>
 
         {/* POPUP MODAL */}
