@@ -42,7 +42,7 @@ export default function Register() {
 
     if (!formData.leadEmail)
       e.leadEmail = "Please enter College Email ID";
-    else if (!/^[a-z]+\.\d{2}[a-z]{3}@kongu\.edu$/.test(formData.leadEmail))
+    else if (!/^[a-z]+\.\d{2}[a-z]{2,3}@kongu\.edu$/.test(formData.leadEmail))
       e.leadEmail = "Email must be like ananths.23eee@kongu.edu";
 
     if (!formData.leadPhone)
