@@ -191,3 +191,41 @@
     padding: 26px 22px;
   }
 }
+/* CLOSED BANNER */
+.closed-banner {
+  background: rgba(255, 0, 0, 0.15);
+  border: 1px solid rgba(255, 0, 0, 0.4);
+  color: #ff6b6b;
+  padding: 14px 28px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  letter-spacing: 4px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Professional description */
+.closed-text {
+  max-width: 700px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  margin-bottom: 60px;
+  line-height: 1.6;
+}
+
+/* Fade disabled form */
+.disabled-form {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Disabled button styling */
+.register-btn:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+  background: rgba(255, 215, 150, 0.2);
+  color: rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 215, 150, 0.3);
+}
